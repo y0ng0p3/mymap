@@ -6,13 +6,13 @@ module.exports = {
                 allowNull: false,
                 primaryKey: true,
                 type: Sequelize.UUID,
-                defaultValue: Sequelize.UUISV4,
+                defaultValue: Sequelize.UUIDV4,
             },
-            createAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            updateAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
@@ -20,9 +20,9 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING
             },
-        });
+        })
     },
     down: (queryInterface, Sequelize) => {
         return queryInterface.dropTable('Leads');
     }
-};
+}
