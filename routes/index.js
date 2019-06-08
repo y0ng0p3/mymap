@@ -6,7 +6,7 @@ let user = require('../controllers/user');
 
 /* Authentication routes. */
 router.get('/login', user.show_login);
-router.get('/signup', user.signup);
+router.get('/signup', user.show_signup);
 
 /* Usual routes. */
 router.get('/', landing.get_landing);
