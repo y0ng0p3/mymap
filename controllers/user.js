@@ -13,6 +13,7 @@ exports.show_login = function(req, res, next) {
 exports.show_signup = function(req, res, next) {
     res.render('user/signup', { formData: {}, errors: {} });
 }
+
 const rerender_signup = function(errors, req, res, next) {
     res.render('user/signup', { formData: req.body, errors: errors });
 }

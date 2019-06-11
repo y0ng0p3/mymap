@@ -18,8 +18,8 @@ router.get('/logout', user.logout);
 router.get('/', landing.get_landing);
 router.post('/', landing.submit_lead);
 
-router.get('/leads', hasAuth, landing.show_leads);
-router.get("/lead/:lead_id", hasAuth, landing.show_lead);
+router.get('/leads', isLoggedIn, landing.show_leads);
+router.get("/lead/:lead_id", isLoggedIn, landing.show_lead);
 
 router.get('/lead/:lead_id/edit', hasAuth, landing.show_edit_lead);
 router.post('/lead/:lead_id/edit', hasAuth, landing.edit_lead);
