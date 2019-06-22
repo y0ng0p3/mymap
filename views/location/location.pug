@@ -1,0 +1,40 @@
+doctype html
+html(lang='en')
+    include ../common/head.pug
+    +head("Locations")
+    body
+        header
+            include ../common/navbar.pug
+            +navbar()
+            .container
+                .row.align-items-center
+                    .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+                        h1 Location
+                        table.table 
+                            thead
+                                tr
+                                    th(scope="col") Classroom
+                                    th(scope="col") Description
+                                    th(scope="col") Longitude
+                                    th(scope="col") Latitude
+                                    th(scope="col") Edit
+                                    th(scope="col") Delete
+                                tr
+                            tbody
+                                tr(id=location.id)
+                                    td
+                                        span #{location.classroom}
+                                    td
+                                        span #{location.description}
+                                    td
+                                        span #{location.longitude}
+                                    td
+                                        span #{location.latitude}
+                                    td
+                                        a(href="/api/location/" + location.id + "/edit") Edit
+                                    td
+                                        form(action="/api/location/" + location.id + "/delete", method="POST")
+                                            button(type="submit").btn.btn-danger Delete
+        include ../common/footer.pug
+        +footer()
+        script(src="/javascripts/locations.js")

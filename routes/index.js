@@ -1,31 +1,31 @@
 var express = require('express');
 var router = express.Router();
 
-let landing = require('../controllers/landing');
+let location = require('../controllers/location');
 let user = require('../controllers/user');
 
 let { isLoggedIn, hasAuth } = require('../middleware/hasAuth');
 
 /* Authentication routes. */
-router.get('/login', user.show_login);
-router.get('/signup', user.show_signup);
-router.post('/login', user.login);
-router.post('/signup', user.signup);
-router.post('/logout', user.logout);
-router.get('/logout', user.logout);
+router.get('/api/login', user.show_login);
+router.get('/api/signup', user.show_signup);
+router.post('/api/login', user.login);
+router.post('/api/signup', user.signup);
+router.post('/api/logout', user.logout);
+router.get('/api/logout', user.logout);
 
 /* Usual routes. */
-router.get('/', landing.get_landing);
-router.post('/', landing.submit_lead);
+router.get('/', location.home);
+router.post('/', location.submit_location);
 
-router.get('/leads', isLoggedIn, landing.show_leads);
-router.get("/lead/:lead_id", isLoggedIn, landing.show_lead);
+router.get('/api/locations', isLoggedIn, location.show_locations);
+router.get("/api/location/:location_id", isLoggedIn, location.show_location);
 
-router.get('/lead/:lead_id/edit', hasAuth, landing.show_edit_lead);
-router.post('/lead/:lead_id/edit', hasAuth, landing.edit_lead);
+router.get('/api/location/:location_id/edit', hasAuth, location.show_edit_location);
+router.post('/api/location/:location_id/edit', hasAuth, location.edit_location);
 
-router.post('/lead/:lead_id/delete', hasAuth, landing.delete_lead);
-router.post('/lead/:lead_id/delete-json', hasAuth, landing.delete_lead_json);
+router.post('/api/location/:location_id/delete', hasAuth, location.delete_location);
+router.post('/api/location/:location_id/delete-json', hasAuth, location.delete_location_json);
 
 
 module.exports = router;

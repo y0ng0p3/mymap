@@ -1,0 +1,36 @@
+doctype html
+html(lang='en')
+  include common/head.pug
+  +head("MYMAP")
+  body
+    header
+      include common/navbar.pug
+      +navbar(user)
+      .container
+        .row.align-items-center
+          .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+            .h1.mb-3 MYMAP Home Page
+            p.lead This application is for using location datum for classroom in the university.
+            p.lead.mb-4 Connect to our database to get classroom's locations.
+            if user
+              form(action="/", method="POST")
+                p
+                  .input-group.mb-3
+                    input(name="location_classroom", type="text", placeholder="Enter the label classroom").form-control
+                    .input-group-append
+                p
+                  .input-group.mb-3
+                    input(name="location_description", type="text", placeholder="Enter the description of the classroom").form-control
+                    .input-group-append
+                p
+                  .input-group.mb-3
+                    input(name="location_longitude", type="text", placeholder="Enter the longitude of the classroom").form-control
+                    .input-group-append
+                p
+                  .input-group.mb-3
+                    input(name="location_latitude", type="text", placeholder="Enter the latitude of the classroom").form-control
+                    .input-group-append
+                  button(type="submit").btn.btn-primary Save
+           
+    include common/footer.pug
+    +footer()

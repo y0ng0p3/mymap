@@ -41,10 +41,10 @@ module.exports = function(passport) {
             req = flash('message', 'Incorrect credentials.')
             return done(null, false)
          } else if (user.password == null || user.password == undefined) {
-            req.flash('message', 'You must reset your password')
+            req = flash('message', 'You must reset your password')
             return done(null, false)
          } else if (!validPassword(user, password)) {
-            req.flash('message', 'Incorrect credentials.')
+            req = flash('message', 'Incorrect credentials.')
             return done(null, false)
          }
          return done(null, user);

@@ -7,15 +7,15 @@ mixin navbar(user)
                 li.nav-item
                     a.nav-link(href="/") Home
                 li.nav-item
-                    a.nav-link(href="/leads") Leads
+                    a.nav-link(href="/api/locations") Locations
         .navbar-right
             if user
                 span.navbar-text Hello #{user.email}!
         .navbar-right   
             ul.navbar-nav.mr-auto
                 li.nav-item
-                    a.nav-link(href="/signup") Sign up
+                    a.nav-link(href="/api/signup") Sign up
                 li.nav-item
-                    a.nav-link(href="/login") Login
+                    a.nav-link(href="/api/login") Login
                 li.nav-item
-                    a.nav-link(href="/logout") Logout
+                    a.nav-link(href="/api/logout") Logout

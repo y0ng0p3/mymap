@@ -1,0 +1,16 @@
+doctype html
+html(lang='en')
+    include common/head.pug
+    +head("MYMAP")
+    body
+        h1 Location
+        p 
+            span #{location.longitude}
+            span #{location.latitude}
+            | 
+            a(href="/location/" + location.id + "/edit") Edit
+            |
+            form(action="/location/" + location.id + "/delete", method="POST")
+                button(type="submit") Delete
+        include common/footer.pug
+        +footer()

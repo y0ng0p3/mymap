@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    var Localisation = sequelize.define('Localisation', {
+    var Location = sequelize.define('Location', {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -9,13 +9,13 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         },
-        city: {
+        classroom: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        place: {
+        description: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         longitude: {
             type: DataTypes.FLOAT,
@@ -27,5 +27,5 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
     
-    return Localisation;
+    return Location;
 }

@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
     include ../common/head.pug
-    +head("Leads")
+    +head("Locations")
     body
         header
             include ../common/navbar.pug
@@ -9,23 +9,26 @@ html(lang='en')
             .container
                 .row.align-items-center
                     .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
-                        h1 Leads
+                        h1 locations
                         table.table 
                             thead
                                 tr
-                                    th(scope="col") Email
+                                    th(scope="col") Longitude
+                                    th(scope="col") Latitude
                                     th(scope="col") Actions
                                     th(scope="col") 
                                 tr
                             tbody
-                                for lead in leads
-                                    tr(id=lead.id)
+                                for location in locations
+                                    tr(id=location.id)
                                         td
-                                            span #{lead.email}
+                                            span #{location.longitude}
                                         td
-                                            a(href="/lead/" + lead.id) Details
+                                            span #{location.latitude}
                                         td
-                                            button(onclick=`deleteLead('${lead.id}')`).btn.btn-primary Delete
+                                            a(href="/api/location/" + location.id) Details
+                                        td
+                                            button(onclick=`deleteLocation('${location.id}')`).btn.btn-danger Delete
         include ../common/footer.pug
         +footer()
-        script(src="/javascripts/leads.js")
+        script(src="/javascripts/locations.js")
