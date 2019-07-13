@@ -13,7 +13,7 @@ html(lang='en')
             p.lead This application is for using location datum for classroom in the university.
             p.lead.mb-4 Connect to our database to get classroom's locations.
             if user
-              form(action="/", method="POST")
+              form(action="/api/location/", method="POST")
                 p
                   .input-group.mb-3
                     input(name="location_classroom", type="text", placeholder="Enter the label classroom").form-control

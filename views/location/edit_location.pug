@@ -12,13 +12,13 @@ html(lang='en')
                         h1 Edit Location
                         form(action="/api/location/" + location.id + "/edit", method="POST")
                             .input-group.mb-3
-                                input(name="location_classroom", type="email", placeholder="Enter the label of the classroom", value=location.classroom).form-control
+                                input(name="location_classroom", type="text", placeholder="Enter the label of the classroom", value=location.classroom).form-control
                             .input-group.mb-3
-                                input(name="location_description", type="email", placeholder="Enter the description of the classroom", value=location.description).form-control
+                                input(name="location_description", type="text", placeholder="Enter the description of the classroom", value=location.description).form-control
                             .input-group.mb-3
-                                input(name="location_longitude", type="email", placeholder="Enter the longitude of the classroom", value=location.longitude).form-control
+                                input(name="location_longitude", type="text", placeholder="Enter the longitude of the classroom", value=location.longitude).form-control
                             .input-group.mb-3
-                                input(name="location_latitude", type="email", placeholder="Enter the latitude of the classroom", value=location.latitude).form-control
+                                input(name="location_latitude", type="text", placeholder="Enter the latitude of the classroom", value=location.latitude).form-control
                             .input-group-append
                                     button(type="submit").btn.btn-success Save
         include ../common/footer.pug

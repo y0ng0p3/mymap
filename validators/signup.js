@@ -7,6 +7,15 @@ const validateCreateUserFields = function(errors, req) {
    if (!validator.isEmail(req.body.email)) {
       errors["email"] = "Please use a valid email.";
    }
+   /* if (!validator.isAscii(req.body.username)) {
+      errors["username"] = "Invalid characters in username, please try another one.";
+   }
+   if (!validator.isAscii(req.body.firstName)) {
+      errors["firstName"] = "Invalid characters in first name, please try another one.";
+   }
+   if (!validator.isAscii(req.body.lastName)) {
+      errors["lastName"] = "Invalid characters in last name, please try another one.";
+   } */
    if (!validator.isAscii(req.body.password)) {
       errors["password"] = "Invalid characters in password, please try another one.";
    }

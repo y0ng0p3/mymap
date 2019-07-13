@@ -11,13 +11,15 @@ exports.home = function(req, res, next) {
       longitude: req.body.location_longitude,
       latitude: req.body.location_latitude
     }).then(location => {
-      res.redirect('/api/locations');
+      res.json(location);
+      /* res.render('location/locations', {title: 'Express', locations: locations}); */
     })
   }
 
   exports.show_locations = function(req, res, next) {
     models.Location.findAll().then(locations => {
-      res.render('location/locations', {title: 'Express', locations: locations});
+      res.json(locations);
+      /* res.render('location/locations', {title: 'Express', locations: locations}); */
     })
   }
 
@@ -27,7 +29,8 @@ exports.home = function(req, res, next) {
         id :req.params.location_id
       }
     }).then(location => {
-      res.render('location/location', {location: location});
+      res.json(location);
+      // res.render('location/location', {location: location});
     })
   }
 
@@ -37,7 +40,8 @@ exports.home = function(req, res, next) {
         id :req.params.location_id
       }
     }).then(location => {
-      res.render('location/edit_location', {location: location});
+      res.json(location);
+      // res.render('location/edit_location', {location: location});
     })
   }
 
@@ -58,7 +62,7 @@ exports.home = function(req, res, next) {
         id: req.params.location_id
       }
     }).then(result => {
-      res.redirect('/api/location/' + req.params.location_id);
+      res.json(result);
     })
   }
 

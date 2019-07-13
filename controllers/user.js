@@ -43,26 +43,41 @@ exports.signup = function(req, res, next) {
                     newUser = models.User.build({
                         email: req.body.email,
                         password: generateHash(req.body.password),
+                        username: req.body.username,
+                        firstname: req.body.firstname,
+                        lastname: req.body.lastname,
                         is_admin: true
                     });
                 }
                 return newUser.save().then(result => {
-                    passport.authenticate('local', {
+                    /* passport.authenticate('local', {
                         successRedirect: '/',
                         failureRedirect: '/api/signup',
                         failureFlash: true
-                    })(req, res, next);
+                    })(req, res, next); */
+
+                    /* passport.authenticate('local'),
+                    function(req, res) {
+                        res.json({ id: req.user.id, email: req.user.email});
+                    } */
+                    res.json(result);
                 })
             })
         }
     })
 }
 exports.login = function(req, res, next) {
-    passport.authenticate('local', {
+   
+    /* passport.authenticate('local', {
             successRedirect: '/',
             failureRedirect: '/api/login',
             failureFlash: true
-        })(req, res, next);
+        })(req, res, next); */
+
+   passport.authenticate('local'),
+   function(req, res) {
+      res.json(req.user);
+   }
 }
 
 exports.logout = function(req, res, next) {

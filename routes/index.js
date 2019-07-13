@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const passport = require('passport');
+
 let location = require('../controllers/location');
 let user = require('../controllers/user');
 
@@ -10,13 +12,16 @@ let { isLoggedIn, hasAuth } = require('../middleware/hasAuth');
 router.get('/api/login', user.show_login);
 router.get('/api/signup', user.show_signup);
 router.post('/api/login', user.login);
+//router.post('/api/login', user.login);
 router.post('/api/signup', user.signup);
 router.post('/api/logout', user.logout);
 router.get('/api/logout', user.logout);
 
-/* Usual routes. */
+/* Location routes. */
 router.get('/', location.home);
-router.post('/', location.submit_location);
+router.post('/api/location/',  
+   location.submit_location
+);
 
 router.get('/api/locations', isLoggedIn, location.show_locations);
 router.get("/api/location/:location_id", isLoggedIn, location.show_location);
