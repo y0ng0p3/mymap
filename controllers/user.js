@@ -32,6 +32,7 @@ exports.signup = function(req, res, next) {
                 where: {
                     is_admin: true
                 }
+                
             }).then(user => {
                 let newUser;
                 if (user !== null) {
